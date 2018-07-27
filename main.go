@@ -6,13 +6,22 @@ import (
 	"github.com/andygeiss/hashing/impl"
 	"golang.org/x/net/context"
 	"log"
+	"fmt"
+	"os"
 )
 
 func main() {
 
-	path := flag.String("path", "testdata", "Target path")
-	stats := flag.String("stats", "totalClasses", "Type of statistics (totalClasses|totalExceptions|classExceptions)")
+	path := flag.String("path", "", "Target path")
+	stats := flag.String("stats", "", "Type of statistics (totalClasses|totalExceptions|classExceptions)")
 	flag.Parse()
+
+	if *path == "" || *stats == "" {
+		fmt.Printf("Usage of [hashing]:\n\n")
+		flag.PrintDefaults()
+		fmt.Printf("\nExamples:\n  hashing -path ./testdata -stats totalClasses\n\n")
+		os.Exit(-1)
+	}
 
 	hashing := impl.NewDefaultHashing()
 	service := impl.NewDefaultParsing(*path, hashing)
