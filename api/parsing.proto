@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package api;
+
+service Parsing {
+    rpc ParseExceptions(ParseExceptionsRequest) returns(ParseExceptionsResponse);
+}
+
+enum StatisticsType {
+    TOTAL_CLASSES = 0;
+    TOTAL_EXCEPTIONS = 1;
+    CLASS_EXCEPTIONS = 2;
+}
+
+message ParseExceptionsRequest {
+    StatisticsType type = 1;
+}
+
+message ParseExceptionsResponse {}

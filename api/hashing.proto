@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package api;
+
+service Hashing {
+    rpc Hash(HashRequest) returns (HashResponse);
+}
+
+message HashRequest {
+    bytes plain = 1;
+}
+
+message HashResponse {
+    uint64 hash = 1;
+}

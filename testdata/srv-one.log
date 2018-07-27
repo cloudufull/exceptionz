@@ -1,0 +1,3 @@
+2018-06-18 00:19:55 SME [acefa60c-7c53-470b-a261-e68e3aaa46c2]: 18.06.2018 00:19:55:653 ERROR [Classname] [][0000 YC0000 IP 0a4a913c--753b08fd-1640fd41269--7dd4] Message
+java.io.IOException: resource "xyz" not found
+	at de.xyz.utils.FileLocator.getResourceLocation(FileLocator.java:113)
