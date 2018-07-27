@@ -7,7 +7,6 @@ import (
 	"golang.org/x/net/context"
 	"log"
 	"fmt"
-	"os"
 )
 
 func main() {
@@ -20,7 +19,7 @@ func main() {
 		fmt.Printf("Usage of [hashing]:\n\n")
 		flag.PrintDefaults()
 		fmt.Printf("\nExamples:\n  hashing -path ./testdata -stats totalClasses\n\n")
-		os.Exit(-1)
+		return
 	}
 
 	hashing := impl.NewDefaultHashing()

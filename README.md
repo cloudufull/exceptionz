@@ -18,3 +18,19 @@ The current version supports three different statistics (see [API](https://githu
 2. Get the amount of unique Exceptions occured per Class:           <b>totalClasses</b>
 3. Get the amount of Exceptions mapped to each Class (detailed):    <b>classExceptions</b>
 
+        Usage of [hashing]:
+        
+          -path string
+                Target path
+          -stats string
+                Type of statistics (totalClasses|totalExceptions|classExceptions)
+        
+        Examples:
+          hashing -path ./testdata -stats totalClasses
+
+## Output
+
+The output will be written as CSV with semicolon as separator:
+
+    Exception Occured;Exception;Classname
+    1;java.io.IOException;Classname
