@@ -9,7 +9,7 @@ bench:
 	@go test -bench=. ./...
 
 install:
-	@go install github.com/andygeiss/assert
+	@go get -u github.com/andygeiss/assert
 
 test: install
 	@go test -v ./...
