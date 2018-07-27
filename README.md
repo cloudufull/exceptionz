@@ -1,5 +1,8 @@
 # hashing - Exceptions
 
+[![Go Report Card](https://goreportcard.com/badge/github.com/andygeiss/hashing)](https://goreportcard.com/report/github.com/andygeiss/hashing)
+[![Build Status](https://travis-ci.org/andygeiss/hashing.svg?branch=master)](https://travis-ci.org/andygeiss/hashing)
+
 A practical implementation of using hash/maps to create statistics about "Exceptions" in [Apache Tomcat](http://tomcat.apache.org/) logfiles.
 
 ## Installation
