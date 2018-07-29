@@ -9,6 +9,7 @@ bench:
 	@go test -bench=. ./...
 
 install:
+	@go get -u github.com/andygeiss/assert
 	@go get -u github.com/andygeiss/hashing
 
 test: install
