@@ -17,6 +17,12 @@ var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the proto package it is being compiled against.
+// A compilation error at this line likely means your copy of the
+// proto package needs to be updated.
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
+
 type StatisticsType int32
 
 const (
@@ -39,16 +45,40 @@ var StatisticsType_value = map[string]int32{
 func (x StatisticsType) String() string {
 	return proto.EnumName(StatisticsType_name, int32(x))
 }
-func (StatisticsType) EnumDescriptor() ([]byte, []int) { return fileDescriptor1, []int{0} }
-
-type ParseExceptionsRequest struct {
-	Type StatisticsType `protobuf:"varint,1,opt,name=type,enum=api.StatisticsType" json:"type,omitempty"`
+func (StatisticsType) EnumDescriptor() ([]byte, []int) {
+	return fileDescriptor_parsing_c203cbd6fbbeea8a, []int{0}
 }
 
-func (m *ParseExceptionsRequest) Reset()                    { *m = ParseExceptionsRequest{} }
-func (m *ParseExceptionsRequest) String() string            { return proto.CompactTextString(m) }
-func (*ParseExceptionsRequest) ProtoMessage()               {}
-func (*ParseExceptionsRequest) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{0} }
+type ParseExceptionsRequest struct {
+	Type                 StatisticsType `protobuf:"varint,1,opt,name=type,proto3,enum=api.StatisticsType" json:"type,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
+	XXX_unrecognized     []byte         `json:"-"`
+	XXX_sizecache        int32          `json:"-"`
+}
+
+func (m *ParseExceptionsRequest) Reset()         { *m = ParseExceptionsRequest{} }
+func (m *ParseExceptionsRequest) String() string { return proto.CompactTextString(m) }
+func (*ParseExceptionsRequest) ProtoMessage()    {}
+func (*ParseExceptionsRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_parsing_c203cbd6fbbeea8a, []int{0}
+}
+func (m *ParseExceptionsRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ParseExceptionsRequest.Unmarshal(m, b)
+}
+func (m *ParseExceptionsRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ParseExceptionsRequest.Marshal(b, m, deterministic)
+}
+func (dst *ParseExceptionsRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ParseExceptionsRequest.Merge(dst, src)
+}
+func (m *ParseExceptionsRequest) XXX_Size() int {
+	return xxx_messageInfo_ParseExceptionsRequest.Size(m)
+}
+func (m *ParseExceptionsRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_ParseExceptionsRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ParseExceptionsRequest proto.InternalMessageInfo
 
 func (m *ParseExceptionsRequest) GetType() StatisticsType {
 	if m != nil {
@@ -58,12 +88,34 @@ func (m *ParseExceptionsRequest) GetType() StatisticsType {
 }
 
 type ParseExceptionsResponse struct {
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ParseExceptionsResponse) Reset()                    { *m = ParseExceptionsResponse{} }
-func (m *ParseExceptionsResponse) String() string            { return proto.CompactTextString(m) }
-func (*ParseExceptionsResponse) ProtoMessage()               {}
-func (*ParseExceptionsResponse) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{1} }
+func (m *ParseExceptionsResponse) Reset()         { *m = ParseExceptionsResponse{} }
+func (m *ParseExceptionsResponse) String() string { return proto.CompactTextString(m) }
+func (*ParseExceptionsResponse) ProtoMessage()    {}
+func (*ParseExceptionsResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_parsing_c203cbd6fbbeea8a, []int{1}
+}
+func (m *ParseExceptionsResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ParseExceptionsResponse.Unmarshal(m, b)
+}
+func (m *ParseExceptionsResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ParseExceptionsResponse.Marshal(b, m, deterministic)
+}
+func (dst *ParseExceptionsResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ParseExceptionsResponse.Merge(dst, src)
+}
+func (m *ParseExceptionsResponse) XXX_Size() int {
+	return xxx_messageInfo_ParseExceptionsResponse.Size(m)
+}
+func (m *ParseExceptionsResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_ParseExceptionsResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ParseExceptionsResponse proto.InternalMessageInfo
 
 func init() {
 	proto.RegisterType((*ParseExceptionsRequest)(nil), "api.ParseExceptionsRequest")
@@ -79,8 +131,9 @@ var _ grpc.ClientConn
 // is compatible with the grpc package it is being compiled against.
 const _ = grpc.SupportPackageIsVersion4
 
-// Client API for Parsing service
-
+// ParsingClient is the client API for Parsing service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type ParsingClient interface {
 	ParseExceptions(ctx context.Context, in *ParseExceptionsRequest, opts ...grpc.CallOption) (*ParseExceptionsResponse, error)
 }
@@ -95,15 +148,14 @@ func NewParsingClient(cc *grpc.ClientConn) ParsingClient {
 
 func (c *parsingClient) ParseExceptions(ctx context.Context, in *ParseExceptionsRequest, opts ...grpc.CallOption) (*ParseExceptionsResponse, error) {
 	out := new(ParseExceptionsResponse)
-	err := grpc.Invoke(ctx, "/api.Parsing/ParseExceptions", in, out, c.cc, opts...)
+	err := c.cc.Invoke(ctx, "/api.Parsing/ParseExceptions", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// Server API for Parsing service
-
+// ParsingServer is the server API for Parsing service.
 type ParsingServer interface {
 	ParseExceptions(context.Context, *ParseExceptionsRequest) (*ParseExceptionsResponse, error)
 }
@@ -143,9 +195,9 @@ var _Parsing_serviceDesc = grpc.ServiceDesc{
 	Metadata: "parsing.proto",
 }
 
-func init() { proto.RegisterFile("parsing.proto", fileDescriptor1) }
+func init() { proto.RegisterFile("parsing.proto", fileDescriptor_parsing_c203cbd6fbbeea8a) }
 
-var fileDescriptor1 = []byte{
+var fileDescriptor_parsing_c203cbd6fbbeea8a = []byte{
 	// 202 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x2d, 0x48, 0x2c, 0x2a,
 	0xce, 0xcc, 0x4b, 0xd7, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x4e, 0x2c, 0xc8, 0x54, 0x72,
