@@ -3,8 +3,8 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/andygeiss/hashing/api"
-	"github.com/andygeiss/hashing/impl"
+	"github.com/andygeiss/exceptionz/api"
+	"github.com/andygeiss/exceptionz/impl"
 	"golang.org/x/net/context"
 	"log"
 )
@@ -14,9 +14,9 @@ func main() {
 	stats := flag.String("stats", "", "Type of statistics (totalClasses|totalExceptions|classExceptions)")
 	flag.Parse()
 	if *path == "" || *stats == "" {
-		fmt.Printf("Usage of [hashing]:\n\n")
+		fmt.Printf("Usage of [exceptionz]:\n\n")
 		flag.PrintDefaults()
-		fmt.Printf("\nExamples:\n  hashing -path ./testdata -stats totalClasses\n\n")
+		fmt.Printf("\nExamples:\n  exceptionz -path ./testdata -stats totalClasses\n\n")
 		return
 	}
 	hashing := impl.NewDefaultHashing()

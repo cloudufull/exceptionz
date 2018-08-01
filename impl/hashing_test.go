@@ -2,8 +2,8 @@ package impl_test
 
 import (
 	. "github.com/andygeiss/assert"
-	"github.com/andygeiss/hashing/api"
-	"github.com/andygeiss/hashing/impl"
+	"github.com/andygeiss/exceptionz/api"
+	"github.com/andygeiss/exceptionz/impl"
 	"golang.org/x/net/context"
 	"testing"
 )

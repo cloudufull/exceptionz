@@ -3,7 +3,7 @@ package impl
 import (
 	"crypto/md5"
 	"fmt"
-	"github.com/andygeiss/hashing/api"
+	"github.com/andygeiss/exceptionz/api"
 	"golang.org/x/net/context"
 )
 

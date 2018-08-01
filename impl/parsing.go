@@ -3,7 +3,7 @@ package impl
 import (
 	"bufio"
 	"fmt"
-	"github.com/andygeiss/hashing/api"
+	"github.com/andygeiss/exceptionz/api"
 	"golang.org/x/net/context"
 	"io/ioutil"
 	"log"
